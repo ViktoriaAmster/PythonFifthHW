@@ -38,15 +38,28 @@ def now_turn(swt: int):
     else:
         print(f'Dы победили!!!')
 
+# def bot_turn(sweets_: int):
+#     player_move = randint(1,28)
+#     print(f'Cейчас ходит бот. На столе {sweets_} конфет. Бот берёт {player_move} конфет.')
+#     sweets_ -= player_move
+#     if sweets_ > 0:
+#         now_turn(sweets_)
+#     else:
+#         print(f'Победил бот!!!')
+
 def bot_turn(sweets_: int):
-    player_move = randint(1,28)
+    if (sweets_ >= 29) and (sweets_ <= 57):
+        player_move = sweets_ % 29
+    elif sweets_ <= 28:
+        player_move = sweets_
+    else:
+        player_move = randint(1,28)
     print(f'Cейчас ходит бот. На столе {sweets_} конфет. Бот берёт {player_move} конфет.')
     sweets_ -= player_move
     if sweets_ > 0:
         now_turn(sweets_)
     else:
         print(f'Победил бот!!!')
-
 
 from random import randint
 sweets = 2021
